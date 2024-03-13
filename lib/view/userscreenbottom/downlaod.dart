@@ -11,7 +11,13 @@ class DownloadPage extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Image.asset(ImageConstants.logoapp),
+        title: Text(
+          "Downloads",
+          style: TextStyle(
+              color: ColorConstants.primarWhite,
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10),

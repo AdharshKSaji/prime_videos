@@ -48,4 +48,19 @@ class DummyDb {
       "imgurl": "assets/images/im4.jpeg",
     },
   ];
+  static const List<Map<String, dynamic>> cinemalist = [
+    {
+      "imgurl": "assets/images/j4.jpeg",
+    },
+    {"imgurl": "assets/images/j1.jpeg"},
+    {
+      "imgurl": "assets/images/j2.jpeg",
+    },
+    {
+      "imgurl": "assets/images/j3.jpeg",
+    },
+    {
+      "imgurl": "assets/images/j5.jpeg",
+    },
+  ];
 }

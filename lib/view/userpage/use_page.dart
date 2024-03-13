@@ -3,7 +3,6 @@ import 'package:prime_videos/core/constants/color_constant.dart';
 import 'package:prime_videos/core/constants/image_constant.dart';
 import 'package:prime_videos/view/userpage/widget/user/all.dart';
 import 'package:prime_videos/view/userpage/widget/user/movies.dart';
-import 'package:prime_videos/view/userpage/widget/user/tvshows.dart';
 
 class UserPage extends StatefulWidget {
   @override
@@ -52,6 +51,7 @@ class _UserPageState extends State<UserPage> {
           body: TabBarView(
             children: [
               AllPage(),
+              MoviesPage(),
               MoviesPage(),
             ],
           )),

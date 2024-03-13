@@ -30,179 +30,177 @@ class _MoviesPageState extends State<MoviesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ColorConstants.primarycolor,
-        body: TabBarView(children: [
-          ListView(
-            shrinkWrap: true,
-            children: [
-              Column(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        height: 220.0,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(photos[index]),
-                                fit: BoxFit.fill)),
-                      ),
-                      Positioned(
-                          top: 180.0,
-                          left: 120.0,
-                          child: Row(
-                            children: <Widget>[
-                              DotsIndicator(dotsCount: photos.length)
-                            ],
-                          ))
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                                child: Text(
-                                  "Prime-Recommended Movies",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: ColorConstants.primaryBlue,
-                                      fontSize: 20),
-                                ),
-                              )
-                            ],
-                          ),
+        body: ListView(
+          shrinkWrap: true,
+          children: [
+            Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      height: 220.0,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(photos[index]),
+                              fit: BoxFit.fill)),
+                    ),
+                    Positioned(
+                        top: 180.0,
+                        left: 120.0,
+                        child: Row(
+                          children: <Widget>[
+                            DotsIndicator(dotsCount: photos.length)
+                          ],
+                        ))
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                              child: Text(
+                                "Prime-Recommended Movies",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorConstants.primaryBlue,
+                                    fontSize: 20),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                          height: 180,
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: photosM.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Container(
-                                  width: 140,
-                                  child: Card(
-                                    child: Image.asset(
-                                      photosM[index],
-                                      fit: BoxFit.fill,
-                                    ),
+                      ),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                        height: 180,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount: photosM.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                width: 140,
+                                child: Card(
+                                  child: Image.asset(
+                                    photosM[index],
+                                    fit: BoxFit.fill,
                                   ),
-                                );
-                              }))
-                    ],
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                            child: Text(
-                              "Original Series",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorConstants.primaryBlue,
-                                  fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                      height: 180,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: photosM.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 140,
-                              child: Card(
-                                child: Image.asset(
-                                  photosM[index],
-                                  fit: BoxFit.fill,
                                 ),
-                              ),
-                            );
-                          }))
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                            child: Text(
-                              "Top Movies",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorConstants.primaryBlue,
-                                  fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
+                              );
+                            }))
+                  ],
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                          child: Text(
+                            "Original Series",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: ColorConstants.primaryBlue,
+                                fontSize: 20),
+                          ),
+                        )
+                      ],
                     ),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                      height: 180,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: photosM.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 140,
-                              child: Card(
-                                child: Image.asset(
-                                  photosM[index],
-                                  fit: BoxFit.fill,
-                                ),
+                  ),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                    height: 180,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: photosM.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            width: 140,
+                            child: Card(
+                              child: Image.asset(
+                                photosM[index],
+                                fit: BoxFit.fill,
                               ),
-                            );
-                          }))
-                ],
-              )
-            ],
-          ),
-        ]));
+                            ),
+                          );
+                        }))
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
+                          child: Text(
+                            "Top Movies",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: ColorConstants.primaryBlue,
+                                fontSize: 20),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Column(
+              children: [
+                Container(
+                    height: 180,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: photosM.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            width: 140,
+                            child: Card(
+                              child: Image.asset(
+                                photosM[index],
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          );
+                        }))
+              ],
+            )
+          ],
+        ));
   }
 }
