@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:prime_videos/core/constants/color_constant.dart';
-import 'package:prime_videos/view/screenbottom/downlaod.dart';
-import 'package:prime_videos/view/screenbottom/livetv.dart';
-import 'package:prime_videos/view/screenbottom/search.dart';
-import 'package:prime_videos/view/screenbottom/store.dart';
+import 'package:prime_videos/view/userscreenbottom/downlaod.dart';
+import 'package:prime_videos/view/userscreenbottom/livetv.dart';
+import 'package:prime_videos/view/userscreenbottom/search.dart';
+
+import 'package:prime_videos/view/userscreenbottom/store.dart';
 import 'package:prime_videos/view/userpage/use_page.dart';
 
 class PageBottom extends StatefulWidget {
@@ -21,7 +22,7 @@ class _PageBottomState extends State<PageBottom> {
     StorePage(),
     LiveTvPage(),
     DownloadPage(),
-    SearchPage(),
+    userSearchPage(),
   ];
 
   void _onItemTapped(int index) {

@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorConstants.primarycolor,
+        backgroundColor: ColorConstants.normalBlack,
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: ColorConstants.primarycolor,
@@ -120,20 +120,37 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             height: 300,
             child: Center(
-                child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Edit ProfileS",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    style: TextButton.styleFrom(
-                        primary: ColorConstants.primarWhite,
-                        backgroundColor: ColorConstants.normalGrey,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        minimumSize: Size(200, 30)))),
+              child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Edit ProfileS",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  style: TextButton.styleFrom(
+                      primary: ColorConstants.primarWhite,
+                      backgroundColor: ColorConstants.normalGrey,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      minimumSize: Size(200, 30))),
+            ),
           ),
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Learn More",
+                  style: TextStyle(
+                      color: ColorConstants.primaryBlue,
+                       fontSize: 18),
+                )
+              ],
+            ),
+          )
         ]));
   }
 }

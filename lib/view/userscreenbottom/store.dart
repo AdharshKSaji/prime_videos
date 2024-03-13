@@ -16,7 +16,13 @@ class _StorePageState extends State<StorePage> {
       backgroundColor: ColorConstants.normalBlack,
       appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Image.asset(ImageConstants.logoapp),
+          title: Text(
+            "Store",
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: ColorConstants.primarWhite),
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.all(10),

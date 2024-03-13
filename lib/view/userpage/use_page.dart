@@ -50,7 +50,10 @@ class _UserPageState extends State<UserPage> {
             ]),
           ),
           body: TabBarView(
-            children: [AllPage(), MoviesPage(), TvShowsPage()],
+            children: [
+              AllPage(),
+              MoviesPage(),
+            ],
           )),
     );
   }

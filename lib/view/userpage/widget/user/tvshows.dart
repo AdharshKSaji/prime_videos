@@ -1,208 +1,134 @@
-import 'package:dots_indicator/dots_indicator.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:prime_videos/core/constants/color_constant.dart';
+import 'package:prime_clone/resources/app_colors.dart';
+import 'package:prime_clone/resources/strings.dart';
+import 'package:prime_clone/utils/custom_widget.dart';
+import 'package:prime_clone/utils/device_size.dart';
+import 'package:prime_clone/utils/movie_name.dart';
+import 'package:prime_clone/view/detail_page.dart';
 
-class TvShowsPage extends StatefulWidget {
-  const TvShowsPage({super.key});
-
+class TVShows extends StatefulWidget {
   @override
-  State<TvShowsPage> createState() => _TvShowsPageState();
+  _TVShowsState createState() => _TVShowsState();
 }
 
-class _TvShowsPageState extends State<TvShowsPage> {
-  int index = 0;
-  List<String> photos = [
-    "assets/images/im.jpeg",
-    "assets/images/im2.jpeg",
-    "assets/images/im3.jpeg",
-    "assets/images/im4.jpeg",
-    "assets/images/im5.jpeg"
-  ];
-  List<String> photosM = [
-    "assets/images/movie_1.jpg",
-    "assets/images/movie_3.jpeg",
-    "assets/images/movie2.jpeg",
-    "assets/images/series1.jpeg",
-    "assets/images/troop_movie.jpg",
+class _TVShowsState extends State<TVShows> with TickerProviderStateMixin {
+  Animation<double> animation;
+  AnimationController controller;
+  initState() {
+    super.initState();
+    controller = new AnimationController(
+        duration: const Duration(seconds: 2), vsync: this);
+    animation = new Tween(begin: 0.0, end: 18.0).animate(controller)
+      ..addListener(() {
+        setState(() {
+          // the state that has changed here is the animation object’s value
+        });
+      });
+    controller.forward();
+  }
+
+  dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  List<MovieName> listOfWatch = [
+    MovieName(
+      "Dark",
+      "assets/dark_show.jpg",
+    ),
+    MovieName(
+      "Made In Heaven",
+      "assets/heaven_show.jpg",
+    ),
+    MovieName(
+      "Mirzapur",
+      "assets/mirzapur_show.jpg",
+    ),
+    MovieName(
+      "Catastrophe",
+      "assets/catas_show.jpg",
+    ),
+    MovieName(
+      "Breathe",
+      "assets/breath_show.jpg",
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorConstants.primarycolor,
-        body: TabBarView(children: [
-          ListView(
-            shrinkWrap: true,
-            children: [
-              Column(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        height: 220.0,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(photos[index]),
-                                fit: BoxFit.fill)),
-                      ),
-                      Positioned(
-                          top: 180.0,
-                          left: 120.0,
-                          child: Row(
-                            children: <Widget>[
-                              DotsIndicator(dotsCount: photos.length)
-                            ],
-                          ))
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                                child: Text(
-                                  "Prime-Recommended Movies",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: ColorConstants.primaryBlue,
-                                      fontSize: 20),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                          height: 180,
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: photosM.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Container(
-                                  width: 140,
-                                  child: Card(
-                                    child: Image.asset(
-                                      photosM[index],
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                );
-                              }))
-                    ],
-                  )
-                ],
+      backgroundColor: AppColors.splashColor1,
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _topPart(),
+              CustomWidget(
+                child: tvShowsList(context),
+                name: Strings.watchNextTv,
               ),
-              SizedBox(
-                height: 10,
+              CustomWidget(
+                child: tvShowsList(context),
+                name: Strings.amazonOriginalSeries,
               ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                            child: Text(
-                              "Original Series",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorConstants.primaryBlue,
-                                  fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
+              CustomWidget(
+                child: tvShowsList(context),
+                name: Strings.thrillerTv,
               ),
-              Column(
-                children: [
-                  Container(
-                      height: 180,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: photosM.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 140,
-                              child: Card(
-                                child: Image.asset(
-                                  photosM[index],
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            );
-                          }))
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
-                            child: Text(
-                              "Top Movies",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: ColorConstants.primaryBlue,
-                                  fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Container(
-                      height: 180,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: photosM.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              width: 140,
-                              child: Card(
-                                child: Image.asset(
-                                  photosM[index],
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
-                            );
-                          }))
-                ],
-              )
             ],
           ),
-        ]));
+        ),
+      ),
+    );
+  }
+
+  Widget carousel = new Carousel(
+    boxFit: BoxFit.cover,
+    images: [
+      AssetImage('assets/series3.jpeg'),
+      AssetImage('assets/movie2.jpeg'),
+      AssetImage('assets/series6.jpeg'),
+      AssetImage('assets/movie4.jpeg'),
+      AssetImage('assets/movi4.jpeg'),
+    ],
+    dotSize: 5,
+    animationCurve: Curves.fastOutSlowIn,
+    animationDuration: Duration(seconds: 8),
+  );
+  Widget _topPart() {
+    return Container(
+      height: DeviceSize.height(context) / 5,
+      child: new Stack(
+        children: <Widget>[
+          carousel,
+        ],
+      ),
+    );
+  }
+
+  Widget tvShowsList(BuildContext context) {
+    return ListView.builder(
+      itemCount: listOfWatch.length,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, i) {
+        return InkWell(
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (ctx) => DetailPage(
+                        name: listOfWatch[i].name,
+                        img: listOfWatch[i].image,
+                      ))),
+          child: Container(
+            margin: EdgeInsets.only(right: 10.0),
+            child: Image.asset(listOfWatch[i].image.toString()),
+          ),
+        );
+      },
+    );
   }
 }
