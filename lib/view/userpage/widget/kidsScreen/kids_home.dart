@@ -11,9 +11,7 @@ class kids_home extends StatefulWidget {
 
 class _kids_homeState extends State<kids_home> {
   int index = 0;
-  List<String> cartoon = [
-    "assets/images/ben_kid.jpg",
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

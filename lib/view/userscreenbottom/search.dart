@@ -29,7 +29,7 @@ class _userSearchPageState extends State<userSearchPage> {
               padding: const EdgeInsets.all(15),
               child: CircleAvatar(
                 radius: 20,
-                backgroundImage: AssetImage(ImageConstants.childimage),
+                backgroundImage: AssetImage(ImageConstants.personimage),
               ),
             )
           ]),

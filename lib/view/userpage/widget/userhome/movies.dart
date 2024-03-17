@@ -1,41 +1,35 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:prime_videos/core/constants/color_constant.dart';
-import 'package:prime_videos/core/constants/image_constant.dart';
-import 'package:prime_videos/view/dammydb.dart';
-import 'package:prime_videos/view/userpage/widget/kidsScreen/kids_home.dart';
 
-class KidsPage extends StatefulWidget {
+class MoviesPage extends StatefulWidget {
+  const MoviesPage({super.key});
+
   @override
-  State<KidsPage> createState() => _KidsPageState();
+  State<MoviesPage> createState() => _MoviesPageState();
 }
 
-class _KidsPageState extends State<KidsPage> {
+class _MoviesPageState extends State<MoviesPage> {
   int index = 0;
+  List<String> photos = [
+    "assets/images/im.jpeg",
+    "assets/images/im2.jpeg",
+    "assets/images/im3.jpeg",
+    "assets/images/im4.jpeg",
+    "assets/images/im5.jpeg"
+  ];
+  List<String> photosM = [
+    "assets/images/movie_1.jpg",
+    "assets/images/movie_3.jpeg",
+    "assets/images/movie2.jpeg",
+    "assets/images/series1.jpeg",
+    "assets/images/troop_movie.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorConstants.normalBlack,
-        appBar: AppBar(
-          backgroundColor: ColorConstants.normalBlack,
-          title: Image.asset(ImageConstants.logoapp),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Icon(
-                Icons.mark_unread_chat_alt,
-                color: ColorConstants.primarWhite,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage(ImageConstants.childimage),
-              ),
-            ),
-          ],
-        ),
+        backgroundColor: ColorConstants.primarycolor,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: ListView(
@@ -49,17 +43,15 @@ class _KidsPageState extends State<KidsPage> {
                         height: 220.0,
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage(
-                                    DummyDb.cartoon[index]["imgurl"]),
+                                image: AssetImage(photos[index]),
                                 fit: BoxFit.fill)),
                       ),
                       Positioned(
                           top: 180.0,
-                          left: 150.0,
+                          left: 120.0,
                           child: Row(
                             children: <Widget>[
-                              DotsIndicator(
-                                  dotsCount: DummyDb.photoslist.length)
+                              DotsIndicator(dotsCount: photos.length)
                             ],
                           ))
                     ],
@@ -78,11 +70,11 @@ class _KidsPageState extends State<KidsPage> {
                               Padding(
                                 padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
                                 child: Text(
-                                  "Prime- Kids and family movies",
+                                  "Prime-Recommended Movies",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: ColorConstants.primarWhite,
-                                      fontSize: 17),
+                                      color: ColorConstants.primaryBlue,
+                                      fontSize: 20),
                                 ),
                               )
                             ],
@@ -98,13 +90,13 @@ class _KidsPageState extends State<KidsPage> {
                           child: ListView.builder(
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
-                              itemCount: DummyDb.cartoon.length,
+                              itemCount: photosM.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return Container(
                                   width: 140,
                                   child: Card(
                                     child: Image.asset(
-                                      DummyDb.cartoon[index]["imgurl"],
+                                      photosM[index],
                                       fit: BoxFit.fill,
                                     ),
                                   ),
@@ -128,11 +120,11 @@ class _KidsPageState extends State<KidsPage> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
                             child: Text(
-                              "Prime - kids Orginal Series",
+                              "Original Series",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstants.primarWhite,
-                                  fontSize: 17),
+                                  color: ColorConstants.primaryBlue,
+                                  fontSize: 20),
                             ),
                           )
                         ],
@@ -148,13 +140,13 @@ class _KidsPageState extends State<KidsPage> {
                       child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: DummyDb.kidseries.length,
+                          itemCount: photosM.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
                               width: 140,
                               child: Card(
                                 child: Image.asset(
-                                  DummyDb.kidseries[index]["imgurl"],
+                                  photosM[index],
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -176,10 +168,10 @@ class _KidsPageState extends State<KidsPage> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(10, 10, 0, 10),
                             child: Text(
-                              "Prime-Action And Adventure ",
+                              "Top Movies",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: ColorConstants.primarWhite,
+                                  color: ColorConstants.primaryBlue,
                                   fontSize: 20),
                             ),
                           )
@@ -196,13 +188,13 @@ class _KidsPageState extends State<KidsPage> {
                       child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: DummyDb.kidsaction.length,
+                          itemCount: photosM.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
                               width: 140,
                               child: Card(
                                 child: Image.asset(
-                                  DummyDb.kidsaction[index]["imgurl"],
+                                  photosM[index],
                                   fit: BoxFit.fill,
                                 ),
                               ),

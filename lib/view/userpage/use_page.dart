@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prime_videos/core/constants/color_constant.dart';
 import 'package:prime_videos/core/constants/image_constant.dart';
-import 'package:prime_videos/view/userpage/widget/user/all.dart';
-import 'package:prime_videos/view/userpage/widget/user/movies.dart';
+import 'package:prime_videos/view/userpage/widget/userhome/all.dart';
+import 'package:prime_videos/view/userpage/widget/userhome/movies.dart';
 
 class UserPage extends StatefulWidget {
   @override

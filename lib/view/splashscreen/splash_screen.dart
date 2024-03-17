@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3)).then((value) {
+    Future.delayed(Duration(seconds: 5)).then((value) {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.primarycolor,
+      backgroundColor: ColorConstants.normalBlack,
       body: Center(
         child: Image.asset(ImageConstants.appIconPng),
       ),

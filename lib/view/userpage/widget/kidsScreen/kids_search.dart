@@ -65,6 +65,21 @@ class _kidsSearchPageState extends State<kidsSearchPage> {
               ),
             ],
           ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  "Featured Collection..",
+                  style:
+                      TextStyle(fontSize: 20, color: ColorConstants.normalGrey),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );

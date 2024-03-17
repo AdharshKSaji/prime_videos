@@ -83,11 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               ButtonTheme(
                 child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaENna8cpfb7-sLV8UZA51CDdppJCh9ly9ZQ&usqp=CAU"),
                   radius: 50,
-                  child: Icon(
-                    Icons.add,
-                    size: 40,
-                  ),
                 ),
               ),
               CircleAvatar(
@@ -106,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "Add New ",
+                "USER 2",
                 style:
                     TextStyle(color: ColorConstants.primarWhite, fontSize: 18),
               ),
@@ -145,8 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text(
                   "Learn More",
                   style: TextStyle(
-                      color: ColorConstants.primaryBlue,
-                       fontSize: 18),
+                      color: ColorConstants.primaryBlue, fontSize: 18),
                 )
               ],
             ),
